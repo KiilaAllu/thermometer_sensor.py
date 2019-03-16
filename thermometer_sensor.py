@@ -40,8 +40,9 @@ def read_temp():
 secs = dateTime()
 temperature = read_temp()
 
+sql = ("""INSERT INTO bmesensor (datetime,temperature) VALUES (%s,%s)""", (secs, temperature))
+
 try:
-	print(read_temp())
 	print "Writing to the database..."
 	cur.execute(*sql)
 	db.commit()

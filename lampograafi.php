@@ -4,22 +4,25 @@ $username="alvari";
 $password="alvari";//use your password
 $database="sensor";
 
-mysql_connect(localhost,$username,$password);
-@mysql_select_db($database) or die ( "Unable to make it happen Cap'n");
+$con=mysqli_connect('localhost',$username,$password);
+mysqli_select_db($con,$database) or die ( "Unable to make it happen Cap'n");
 
-$query = "SELECT datetime, temperature FROM bmesensor";
-$result = mysql_query($query);
+$query = "SELECT datetime, temperature FROM bmesensor;";
+$result = mysqli_query($con, $query);
 $dateTemp = array();
 $index = 0;
-while ($row = mysql_fetch_array($result, MYSQL_NUM))
+
+echo "ennen looppia";
+while ($row = mysqli_fetch_array($result, MYSQLI_NUM))
 {
+echo "loopissa: " . $index . "<br>";
 $dateTemp[$index]=$row;
 $index++;
 }
 
-//echo json_encode($dateTemp, JSON_NUMERIC_CHECK);
+echo json_encode($dateTemp, JSON_NUMERIC_CHECK);
 
-mysql_close();
+mysqli_close($con);
 
 ?>
 
@@ -42,9 +45,6 @@ $(function () {
 $('#container').highcharts({
 chart: {
 type: 'line'
-},
-time: {
-timezone: 'America/New_York'
 },
 title: {
 text: 'Temperature vs Time'

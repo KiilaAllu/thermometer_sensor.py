@@ -46,6 +46,9 @@ $('#container').highcharts({
 chart: {
 type: 'line'
 },
+time: {
+timezone: 'Europe/Helsinki'
+},
 title: {
 text: 'Temperature vs Time'
 },

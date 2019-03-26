@@ -12,15 +12,14 @@ $result = mysqli_query($con, $query);
 $dateTemp = array();
 $index = 0;
 
-echo "ennen looppia";
+
 while ($row = mysqli_fetch_array($result, MYSQLI_NUM))
 {
-echo "loopissa: " . $index . "<br>";
 $dateTemp[$index]=$row;
 $index++;
 }
 
-echo json_encode($dateTemp, JSON_NUMERIC_CHECK);
+//echo json_encode($dateTemp, JSON_NUMERIC_CHECK);
 
 mysqli_close($con);
 

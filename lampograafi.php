@@ -1,7 +1,7 @@
 <?php
 
-$username="alvari";
-$password="alvari";//use your password
+$username="******";
+$password="******";//use your password
 $database="sensor";
 
 $con=mysqli_connect('localhost',$username,$password);

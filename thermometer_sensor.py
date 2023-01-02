@@ -5,7 +5,7 @@ import datetime
 import MySQLdb
 from time import strftime
 
-db = MySQLdb.connect(host="localhost", user="alvari", passwd="alvari", db="sensor") # replace password with your password
+db = MySQLdb.connect(host="localhost", user="*******", passwd="********", db="sensor") # replace password with your password
 cur = db.cursor()
 
 os.system('modprobe w1-gpio')
